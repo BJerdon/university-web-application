@@ -1,6 +1,7 @@
 # AWS Web Application Project
 
-## Scenario
+## Objective
+Create and host a highly available and scalable web application for a theoretical university using AWS.
 
 ## Solution
 
