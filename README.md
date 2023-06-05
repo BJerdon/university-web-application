@@ -17,12 +17,12 @@ My original design was very complex. Most notibly it featured AWS WAF, CloudFron
 ## Phase 2 Creating a multi-AZ VPC and NAT Gateway
 The very first step that goes into building any cloud infrastructure is the creation of the Virtual Private Cloud (VPC) it will reside on.
 The VPC functions as an private, isolated section of the cloud where we can safely custruct and manage our cloud resources.
-+ During the VPC creation process we can manage the provisioning of 4 subnets into 2 AZs.
++ During the VPC creation process I can manage the provisioning of 4 subnets into 2 AZs.
 + PublicSubnet1 and PrivateSubnet1 are both placed into the us-east-1a AZ.
 + PublicSubnet2 and PrivateSubnet2 are both placed into the us-east-1b AZ.
 + Before finializing the VPC's creation, a NAT Gateway is also created in the us-east-1a AZ. We will use a route table to ensure both private subnets have access to this NAT Gateway.
 + Finally, the VPC is created with all of the basic networking infrastructure provisioned.
-With the VPC, AZs, subnets, and NAT Gateway, and route table configured, we can move forward in provisioning the necissarying hardware needed to host the univserity web application.
+With the VPC, AZs, subnets, and NAT Gateway, and route table configured, I can move forward in provisioning the necissary hardware needed to host the univserity web application.
 
 ## Phase 3 Configuring and Deploying EC2 Instances
 
