@@ -22,6 +22,7 @@ The VPC functions as an private, isolated section of the cloud where we can safe
 + PublicSubnet2 and PrivateSubnet2 are both placed into the us-east-1b AZ.
 + Before finializing the VPC's creation, a NAT Gateway is also created in the us-east-1a AZ. We will use a route table to ensure both private subnets have access to this NAT Gateway.
 + Finally, the VPC is created with all of the basic networking infrastructure provisioned.
+![image](https://github.com/BJerdon/university-web-application/assets/133431472/91d9c4cd-4871-48b6-ad81-7290a0705bea)
 With the VPC, AZs, subnets, and NAT Gateway, and route table configured, I can move forward in provisioning the necissary hardware needed to host the univserity web application.
 
 ## Phase 3 Configuring and Deploying EC2 Instances
