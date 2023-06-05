@@ -11,8 +11,8 @@ Use AWS to build and deploy the infrastructure necessary to host a cost effectiv
 + Implement an EC2 Auto Scaling group to lauch and scale EC2 instances which will be used to host the univserity web application.
 
 ## Phase 1 Planning the Design and Estimating the Cost
-Before a single resource is provisioned, it's important to lay out a design and estimate cost so that most of the heavy lifting takes place outside of the AWS enviornment, and no money or time is
-wasted making changes during the resource allocation process. LucidChart is a create tool to help in visualizing cloud infrastructure and to help create a map of all necessary resources. 
+Before a single resource is provisioned, it's important to lay out a design and estimate cost so that most of the heavy lifting takes place outside of the AWS enviornment. LucidChart is a great tool to use for visualizing cloud infrastructure and to help create a map of all necessary resources. ![image](https://github.com/BJerdon/university-web-application/assets/133431472/8b0d94bc-581e-4d8e-89b0-8ab9b474aca3)
+My original design was very complex. Most notibly it features AWS WAF, CloudFront, and two RDS Databases which were segmented from the rest of the network. I found that these all were superfluous and a lot of money would be saved by cutting these resources out of the final design.
 
 ## Phase 2 Creating a multi-AZ VPC and NAT Gateway
 The very first step that goes into building any cloud infrastructure is the creation of the Virtual Private Cloud (VPC) it will reside on.
