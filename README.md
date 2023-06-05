@@ -26,7 +26,7 @@ The VPC functions as an private, isolated section of the cloud where we can safe
 With the VPC, AZs, subnets, and NAT Gateway, and route table configured, I can move forward in provisioning the necissary hardware needed to host the univserity web application.
 
 ## Phase 3 Configuring and Deploying EC2 Instances
-
+Before we can move forward with creating the rest of the necessary cloud infrastructure, I first need to ensure that the web application actually works. To do this, an EC2 instance will be created in one of the public subnets. This EC2 instance will be a temporary host for our web application and will also act as the template for future EC2 instances that will be generated using an EC2 Auto Scaling Group.
 
 ## Phase 4 Utilizing an Application Load Balancer
 
