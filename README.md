@@ -25,7 +25,7 @@ The VPC functions as a private, isolated section of the cloud where we can safel
 ![image](https://github.com/BJerdon/university-web-application/assets/133431472/91d9c4cd-4871-48b6-ad81-7290a0705bea)
 With the VPC, AZs, subnets, NAT Gateway, route table configured, and security group created, I can move forward in provisioning the necessary hardware needed to host the university web application.
 
-## Phase 3 Configuring and Deploying EC2 Instances
+## Phase 3 Configuring and Deploying an EC2 Instance
 Before we can move forward with creating the rest of the necessary cloud infrastructure, I must ensure that the web application works. An EC2 instance will be created in one of the public subnets to do this. This EC2 instance will be a temporary host for our web application and will also act as the template for future EC2 instances that will be generated using an EC2 Auto Scaling Group.
 + When selecting which Amazon Machine Imagine to run on my EC2 instance, I'll decide on using the Ubuntu Server 22.04 LTS AMI because it works best when running the web application.
 + Because this EC2 is for testing, I made sure to save money by choosing the t2.micro instance type.
@@ -33,8 +33,14 @@ Before we can move forward with creating the rest of the necessary cloud infrast
 + Security group is set to the newly created Web Security Group.
 + The web application is uploaded to the EC2 user data.
 + After the instance has fully deployed, I simply drop the public IP into my browser URL and the university web application is visible.
+![image](https://github.com/BJerdon/university-web-application/assets/133431472/25237f0c-ca86-4f89-9516-1b6f1380d8de)
 
 ## Phase 4 Utilizing an Application Load Balancer
+To ensure that network traffic is equally distributed between all of the EC2 instances hosting our web application, an Application Load Balancer needs to be implemented. The Application Load Balancer will need to be connected directly to each EC2 instance in both AZs.
++ I place the ALB into the previously created VPC
++ us-east-1a and us-east-1b are both mapped to the ALB as well.
++ Port 80 HTTP is opened up as a listener port.
+After I create the EC2 Auto Scaling Group, the newly created Application Load Balancer will become the new access point for the university web application. Before we would connect using the EC2 instance's public IP address. Now we will use the ALB's DNS name to connect.
 
 ## Phase 5 Building and Implementing an EC2 Auto Scaling Group
 
