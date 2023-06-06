@@ -46,4 +46,5 @@ After I create the EC2 Auto Scaling Group, the newly created Application Load Ba
 
 ## Phase 5 Building and Implementing an EC2 Auto Scaling Group
 
+
 ## Phase 6 Testing our Infrastructure Against High Internet Traffic
