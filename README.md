@@ -40,6 +40,7 @@ To ensure that network traffic is equally distributed between all of the EC2 ins
 + I place the ALB into the previously created VPC
 + us-east-1a and us-east-1b are both mapped to the ALB as well.
 + Port 80 HTTP is opened up as a listener port.
+
 After I create the EC2 Auto Scaling Group, the newly created Application Load Balancer will become the new access point for the university web application. Before we would connect using the EC2 instance's public IP address. Now we will use the ALB's DNS name to connect.
 ![image](https://github.com/BJerdon/university-web-application/assets/133431472/4c8a3a42-0ec0-4ede-abc6-33f12379eea0)
 
