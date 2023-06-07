@@ -52,7 +52,7 @@ The final step toward creating a functional and scalable university web server i
 + First, I create the launch template using the first EC2 instance I orginally created in Phase 3.
 + I configure the EC2 Auto Scaling Group to use the load balancer.
 + A tracking policy is also implemented in order for the Auto Scaling Group to know when it needs to add or remove EC2 instances. I will be able to manage and observer this tracking via CloudWatch.
-+ The Auto Scaling Group is set to always have at least 2 EC2 instances running plus give or take 2 more EC2 instances.
++ The Auto Scaling Group is set to always have at least 2 EC2 instances running plus give or take 4 more EC2 instances.
 ///
 Now all of the neccissary infrastructure is in place to run the univserity web application in an efficent and cost effective way. With this done. The last thing to do is test our work to ensure it all works properly.
 
