@@ -36,7 +36,7 @@ Before we can move forward with creating the rest of the necessary cloud infrast
 + Security group is set to the newly created Web Security Group.
 + The web application is uploaded to the EC2 user data.
 + After the instance has fully deployed, I simply drop the public IP into my browser URL and the university web application is visible.
-![image](https://github.com/BJerdon/university-web-application/assets/133431472/25237f0c-ca86-4f89-9516-1b6f1380d8de)
+![image](https://github.com/BJerdon/university-web-application/assets/133431472/fd5c513f-9411-43e6-8ec5-b2af057390c6)
 
 ## Phase 4 Utilizing an Application Load Balancer
 To ensure that network traffic is equally distributed between all of the EC2 instances hosting our web application, an Application Load Balancer needs to be implemented. The Application Load Balancer will need to be connected directly to each EC2 instance in both AZs.
