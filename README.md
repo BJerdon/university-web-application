@@ -66,3 +66,4 @@ Due to the fact that there actually won't be thousands of people flooding to my 
 + Now I just switch over to CloudWatch and observer as the workload on each of my EC2 instances skyrocket.
 ///
 After a little wait a new EC2 instance is created by the EC2 Auto Scaling Group. This proves that the university web server functions properly and my work is complete.
+![image](https://github.com/BJerdon/university-web-application/assets/133431472/cdb0c022-d77e-4eea-83ec-a1b7026347d3)
