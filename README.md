@@ -13,7 +13,8 @@ Use AWS to build and deploy the infrastructure necessary to host a cost-effectiv
 ## Phase 1 Planning the Design
 Before a single resource is provisioned, it's important to lay out a design and estimate cost so that most of the heavy lifting takes place outside of the AWS environment. LucidChart is a great tool to use for visualizing cloud infrastructure and to help create a map of all necessary resources. ![image](https://github.com/BJerdon/university-web-application/assets/133431472/8b0d94bc-581e-4d8e-89b0-8ab9b474aca3)
 My original design was very complex. Most notably it featured AWS WAF, CloudFront, and two RDS Databases which were segmented from the rest of the network. I found that these were all superfluous and a lot of money would be saved by cutting these resources out of the final design.![image](https://github.com/BJerdon/university-web-application/assets/133431472/e9c6ae97-8073-423e-b9a3-716823c73425)
-My original pricing estimate was much higher than what I would actually spend creating and testing the infrastructure. However, this pricing calculator accounted for having thousands of users utilizing the web application at peak hours which then would require beefier hardware than what I would actually use. This estimate also includes the cost of using services like AWS WAF and RDS which as I said before were removed from the final design. https://github.com/BJerdon/university-web-application/blob/08638d1023be7a3c5cf88e13b8327d58efa14fe4/My%20Estimate%20-%20AWS%20Pricing%20Calculator.pdf
+My original pricing estimate was much higher than what I would actually spend creating and testing the infrastructure. However, this pricing calculator accounted for having thousands of users utilizing the web application at peak hours which then would require beefier hardware than what I would actually use. This estimate also includes the cost of using services like AWS WAF and RDS which as I said before were removed from the final design. 
+https://github.com/BJerdon/university-web-application/blob/08638d1023be7a3c5cf88e13b8327d58efa14fe4/My%20Estimate%20-%20AWS%20Pricing%20Calculator.pdf
 Despite the large costs present on this pdf, once all of the work was done being completed I had only used roughly 40 dollars building and testing the infrastructure.
 
 ## Phase 2 Creating a multi-AZ VPC, NAT Gateway, and Security Group
@@ -61,7 +62,7 @@ Due to the fact that there actually won't be thousands of people flooding to my 
 + The environment is associated with my univserity vpc and subnets.
 + After my new environment is done being created, I load into the Cloud9 terminal and run the following two commands.
 + npm install -g loadtest
-+ loadtest --rps 2000 -c 1000 -k http://<LoadBalancerDNS>
++ loadtest --rps 2000 -c 1000 -k http://[LoadBalancerDNS]
 + Now I just switch over to CloudWatch and observer as the workload on each of my EC2 instances skyrocket.
 ///
 After a little wait a new EC2 instance is created by the EC2 Auto Scaling Group. This proves that the university web server functions properly and my work is complete.
