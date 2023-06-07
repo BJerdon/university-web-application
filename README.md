@@ -13,7 +13,8 @@ Use AWS to build and deploy the infrastructure necessary to host a cost-effectiv
 ## Phase 1 Planning the Design
 Before a single resource is provisioned, it's important to lay out a design and estimate cost so that most of the heavy lifting takes place outside of the AWS environment. LucidChart is a great tool to use for visualizing cloud infrastructure and to help create a map of all necessary resources. ![image](https://github.com/BJerdon/university-web-application/assets/133431472/8b0d94bc-581e-4d8e-89b0-8ab9b474aca3)
 My original design was very complex. Most notably it featured AWS WAF, CloudFront, and two RDS Databases which were segmented from the rest of the network. I found that these were all superfluous and a lot of money would be saved by cutting these resources out of the final design.![image](https://github.com/BJerdon/university-web-application/assets/133431472/e9c6ae97-8073-423e-b9a3-716823c73425)
-My original pricing estimate was much higher than what I would actually need to create and test the infrastructure. However, this pricing calculator accounted for having thousands of users utilizing at peak hours which then required beefier hardware than what I would actually use. This estimate also includes the cost of using services like AWS WAF and RDS which as I said before were removed from the final design.
+My original pricing estimate was much higher than what I would actually need to create and test the infrastructure. However, this pricing calculator accounted for having thousands of users utilizing at peak hours which then required beefier hardware than what I would actually use. This estimate also includes the cost of using services like AWS WAF and RDS which as I said before were removed from the final design. https://github.com/BJerdon/university-web-application/blob/08638d1023be7a3c5cf88e13b8327d58efa14fe4/My%20Estimate%20-%20AWS%20Pricing%20Calculator.pdf
+Despite the large costs present on this pdf, once all of the work was done being completed I had only used roughly 40 dollars building and testing the infrastructure.
 
 ## Phase 2 Creating a multi-AZ VPC, NAT Gateway, and Security Group
 The very first step that goes into building any cloud infrastructure is the creation of the Virtual Private Cloud (VPC) it will reside on.
@@ -47,6 +48,20 @@ After I create the EC2 Auto Scaling Group, the newly created Application Load Ba
 
 ## Phase 5 Building and Implementing an EC2 Auto Scaling Group
 The final step toward creating a functional and scalable university web server is creating an EC2 Auto Scaling Group. This Auto Scaling Group will observer the work load on each EC2 instance and if one becomes overworked, a new EC2 instance is created and the workload is redistributed evenly. Likewise, if an EC2 instance isn't being worked at all it is removed in order to save money.
-+ 
++ First, I create the launch template using the first EC2 instance I orginally created in Phase 3.
++ I configure the EC2 Auto Scaling Group to use the load balancer.
++ A tracking policy is also implemented in order for the Auto Scaling Group to know when it needs to add or remove EC2 instances. I will be able to manage and observer this tracking via CloudWatch.
++ The Auto Scaling Group is set to always have at least 2 EC2 instances running plus give or take 2 more EC2 instances.
+///
+Now all of the neccissary infrastructure is in place to run the univserity web application in an efficent and cost effective way. With this done. The last thing to do is test our work to ensure it all works properly.
 
 ## Phase 6 Testing our Infrastructure Against High Internet Traffic
+Due to the fact that there actually won't be thousands of people flooding to my web server, I have to find an alternative way to ensure that both the Application Load Balancer and the EC2 Auto Scaling Group are both working. The method I had success with requires the use of the AWS IDE called Cloud9. Using Cloud9 I could easily install a loadtest package and then run it.
++ I create a Cloud9 environment called UniversityIDE.
++ The environment is associated with my univserity vpc and subnets.
++ After my new environment is done being created, I load into the Cloud9 terminal and run the following two commands.
++ npm install -g loadtest
++ loadtest --rps 2000 -c 1000 -k http://<LoadBalancerDNS>
++ Now I just switch over to CloudWatch and observer as the workload on each of my EC2 instances skyrocket.
+///
+After a little wait a new EC2 instance is created by the EC2 Auto Scaling Group. This proves that the university web server functions properly and my work is complete.
