@@ -45,6 +45,7 @@ After I create the EC2 Auto Scaling Group, the newly created Application Load Ba
 ![image](https://github.com/BJerdon/university-web-application/assets/133431472/4c8a3a42-0ec0-4ede-abc6-33f12379eea0)
 
 ## Phase 5 Building and Implementing an EC2 Auto Scaling Group
-
+The final step toward creating a functional and scalable university web server is creating an EC2 Auto Scaling Group. This Auto Scaling Group will observer the work load on each EC2 instance and if one becomes overworked, a new EC2 instance is created and the workload is redistributed evenly. Likewise, if an EC2 instance isn't being worked at all it is removed in order to save money.
++ 
 
 ## Phase 6 Testing our Infrastructure Against High Internet Traffic
