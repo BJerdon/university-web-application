@@ -53,7 +53,7 @@ The final step toward creating a functional and scalable university web server i
 + I configure the EC2 Auto Scaling Group to use the load balancer.
 + A tracking policy is also implemented in order for the Auto Scaling Group to know when it needs to add or remove EC2 instances. I will be able to manage and observer this tracking via CloudWatch.
 + The Auto Scaling Group is set to always have at least 2 EC2 instances running plus give or take 4 more EC2 instances.
-///
+![image](https://github.com/BJerdon/university-web-application/assets/133431472/7f7212f8-e16f-4baf-8bf1-bc3a8de45896)
 Now all of the neccissary infrastructure is in place to run the univserity web application in an efficent and cost effective way. With this done. The last thing to do is test our work to ensure it all works properly.
 
 ## Phase 6 Testing our Infrastructure Against High Internet Traffic
