@@ -45,7 +45,7 @@ To ensure that network traffic is equally distributed between all of the EC2 ins
 + Port 80 HTTP is opened up as a listener port.
 
 After I create the EC2 Auto Scaling Group, the newly created Application Load Balancer will become the new access point for the university web application. Before we would connect using the EC2 instance's public IP address. Now we will use the ALB's DNS name to connect.
-![image](https://github.com/BJerdon/university-web-application/assets/133431472/4c8a3a42-0ec0-4ede-abc6-33f12379eea0)
+![image](https://github.com/BJerdon/university-web-application/assets/133431472/2299984b-a667-4f95-8f11-f7701bb984cd)
 
 ## Phase 5 Building and Implementing an EC2 Auto Scaling Group
 The final step toward creating a functional and scalable university web server is creating an EC2 Auto Scaling Group. This Auto Scaling Group will observer the work load on each EC2 instance and if one becomes overworked, a new EC2 instance is created and the workload is redistributed evenly. Likewise, if an EC2 instance isn't being worked at all it is removed in order to save money.
